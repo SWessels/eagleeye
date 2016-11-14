@@ -1,0 +1,12 @@
+*.sqlite
+/vendor
+/node_modules
+/public/storage
+/public/uploads
+/public/csv
+Homestead.yaml
+Homestead.json
+/public/themusthaves_products.json
+/public/musthavesforreal_products.json
+.env
+.idea/

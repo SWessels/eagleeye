@@ -1,0 +1,829 @@
+@extends('layouts.master')
+
+@section('css')
+      
+        {!! HTML::style('assets/css/components-md.min.css') !!}
+        {!! HTML::style('assets/plugins/select2/css/select2.min.css') !!}
+        {!! HTML::style('assets/plugins/dropzone/dropzone.min.css') !!}
+        {!! HTML::style('assets/plugins/dropzone/basic.min.css') !!}
+        {!! HTML::style('assets/plugins/select2/css/select2-bootstrap.min.css') !!}
+        {!! HTML::style('assets/css/custom.css') !!}
+    @endsection
+
+@section('content') 
+
+<!-- BEGIN PAGE BAR -->
+<div class="page-bar">
+  <ul class="page-breadcrumb">
+    <li> <a href="../pages/index.html">Home</a> <i class="fa fa-circle"></i> </li>
+    <li> <span>Product</span> </li>
+  </ul>
+  <div class="page-toolbar">
+    <div class="btn-group pull-right">
+      <button type="button" class="btn green btn-sm btn-outline dropdown-toggle" data-toggle="dropdown"> Actions <i class="fa fa-angle-down"></i> </button>
+      <ul class="dropdown-menu pull-right" role="menu">
+        <li> <a href="#"> <i class="icon-bell"></i> Action</a> </li>
+        <li> <a href="#"> <i class="icon-shield"></i> Another action</a> </li>
+        <li> <a href="#"> <i class="icon-user"></i> Something else here</a> </li>
+        <li class="divider"> </li>
+        <li> <a href="#"> <i class="icon-bag"></i> Separated link</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- END PAGE BAR --> 
+<!-- BEGIN PAGE TITLE-->
+<h3 class="page-title"> Product <small>Add product</small> </h3>
+<!-- END PAGE TITLE--> 
+<!-- END PAGE HEADER-->
+<div class="row">
+  <div class="col-md-8">
+    <div class="form-group">
+      <input type="text" class="form-control" />
+    </div>
+    
+    <div class="portlet box default">
+      <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-gift"></i>Product description </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+      <div class="portlet-body">
+      <textarea class="form-control" name="product-editor" id="product-editor"></textarea>
+      </div>
+    </div>
+    <div class="portlet box default">
+  		<div class="portlet-title">
+        <div class="caption">
+        <div class="pull-left col-md-12">
+          <div class="pull-left padding-top">
+           <i class="fa fa-cart-plus"></i> Product data
+          </div>
+          <div class="col-md-7">
+          	<select class="form-control input-sm" id="product-type">
+                <option value="1">Simple product</option>
+                <option value="2">Varaible product</option>
+                <option value="3">Composite product</option>
+            </select>
+          </div>
+          <!--<div class="pull-left padding-top">
+          Virtual <input type="checkbox" />
+          </div>
+          <div class="pull-left padding-top">
+          Downloadable <input type="checkbox" />
+          </div>-->
+        </div>
+          </div>
+          <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+        </div>
+        <div class="portlet-body">
+        <div class="row">
+        
+                                        <div class="col-md-4 col-sm-4 col-xs-4">
+                                            <ul class="nav nav-tabs tabs-left">
+                                                <li class="active">
+                                                    <a href="#general" data-toggle="tab"> <i class="fa fa-certificate"></i> General </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#inventory" data-toggle="tab"> <i class="fa fa-line-chart"></i> Inventory </a>
+                                                </li>
+                                                
+                                               <!-- <li>
+                                                    <a href="#dispatch" data-toggle="tab"> <i class="fa fa-truck"></i> Shipping methods </a>
+                                                </li>-->
+                                                <li>
+                                                    <a href="#linked_product" data-toggle="tab"> <i class="fa fa-anchor"></i> Linked Product </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#attribute" data-toggle="tab"> <i class="fa fa-bookmark"></i> Attribute </a>
+                                                </li>
+                                                <!--<li>
+                                                    <a href="#advance" data-toggle="tab"> <i class="fa fa-bullhorn"></i> Advance </a>
+                                                </li>-->
+                                                
+                                                <li>
+                                                    <a href="#variations" data-toggle="tab"> <i class="fa fa-puzzle-piece"></i> Variations </a>
+                                                </li>
+                                                
+                                                
+                                                
+                                                <li>
+                                                    <a href="#swtiches" data-toggle="tab"> <i class="fa fa-recycle"></i> Color Swatches </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#product_color" data-toggle="tab"> <i class="fa fa-recycle"></i> Product Colors </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#wait_list" data-toggle="tab"> <i class="fa fa-bars"></i> Wait List </a>
+                                                </li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-8 col-sm-8 col-xs-8">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="general">
+                                                    
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">SKU</div>
+                                                        <div class="col-md-6"><input type="text" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                     <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Tax Status</div>
+                                                        <div class="col-md-6">
+                                                        	<select class="form-control input-sm">
+                                                            	<option></option>
+                                                                <option>Tax</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Tax Standards</div>
+                                                        <div class="col-md-6">
+                                                        	<select class="form-control input-sm">
+                                                            	<option></option>
+                                                                <option>Tax Standards</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Back order status</div>
+                                                        <div class="col-md-6"><input type="number" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <hr />
+                                                   <!-- <div class="form-group">
+                                                    	<div class="col-md-3 control-label">coupons</div>
+                                                        <div class="col-md-6"><input type="number" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>-->
+                                                    
+                                                </div>
+                                                <div class="tab-pane fade" id="inventory">
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Stock Management</div>
+                                                        <div class="col-md-9">
+                                                        
+                                                        
+                                                        <input type="checkbox" name="inventory_level" /> Enable product inventory level
+                                                        
+                                                        
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Purchase Order</div>
+                                                        <div class="col-md-9">
+                                                        
+                                                        
+                                                        <input type="checkbox" /> One order / product
+                                                        
+                                                        
+                                                        </div>
+                                                        <div class="col-md-1"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Stock Number</div>
+                                                        <div class="col-md-6"><input type="number" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Allow Backorders?</div>
+                                                        <div class="col-md-6">
+                                                        	<select class="form-control input-sm">
+                                                            	<option></option>
+                                                                <option>Allow</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Individually sold</div>
+                                                        <div class="col-md-9">
+                                                        	<input type="checkbox" /><small> <em>Enable this to ensure that only one item can be purchased in order</em></small>
+                                                        </div>
+                                                        
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <!--<div class="tab-pane fade" id="dispatch">
+                                                    
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Weight (kg)</div>
+                                                        <div class="col-md-6"><input type="number" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Size (cm)</div>
+                                                        <div class="col-md-2"><input type="number" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-2"><input type="number" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-2"><input type="number" class="form-control input-sm"/ ></div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <hr />
+                                                    
+                                                     <div class="form-group">
+                                                    	<div class="col-md-3 control-label">shipping class</div>
+                                                        <div class="col-md-6">
+                                                        	<select class="form-control input-sm">
+                                                            	<option></option>
+                                                                <option>Shipping</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                </div>-->
+                                                <div class="tab-pane fade" id="linked_product">
+                                                
+                                                	<div class="form-group">
+                                                    	<div class="col-md-3 control-label">Up sells</div>
+                                                        <div class="col-md-6">
+                                                        	<select  class="form-control select2" multiple>
+                                                            <option></option>
+                                                            <?php for($i=1;$i<=10;$i++){ ?>
+                                                            <option  <?php if($i%2){ ?> selected <?php } ?>>Product Product Product<?php echo $i ?></option>
+                                                            <?php } ?>
+                                                           
+                                                            
+                                                        </select>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Cross-sells</div>
+                                                        <div class="col-md-6">
+                                                        	<select  class="form-control select2" multiple>
+                                                            <option></option>
+                                                            <?php for($i=1;$i<=10;$i++){ ?>
+                                                            <option  <?php if($i%2){ ?> selected <?php } ?>>Product Product Product<?php echo $i ?></option>
+                                                            <?php } ?>
+                                                           
+                                                            
+                                                        </select>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Groeperen</div>
+                                                        <div class="col-md-6">
+                                                        	<select  class="form-control select2" multiple>
+                                                            <option></option>
+                                                            <?php for($i=1;$i<=10;$i++){ ?>
+                                                            <option <?php if($i%2){ ?> selected <?php } ?>>Product Product Product<?php echo $i ?></option>
+                                                            <?php } ?>
+                                                           
+                                                            
+                                                        </select>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                <div class="tab-pane fade" id="attribute">
+                                                    <div class="col-md-6">
+                                                    	<select class="form-control input-sm">
+                                                        	<option>Custom Featured Product</option>
+                                                            <option>Measure</option>
+                                                            <option></option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                    <button class="btn btn-default btn-sm">Add</button>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <hr />
+                                                    <button class="btn btn-primary btn-sm">Saving features</button>
+                                                </div>
+                                                <div class="tab-pane fade" id="variations">
+                                                    
+                                                </div>
+                                                <!--<div class="tab-pane fade" id="advance">
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Purchase Notes</div>
+                                                        <div class="col-md-6">
+                                                        	<textarea rows="3" class="form-control"></textarea>
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Menu order</div>
+                                                        <div class="col-md-6">
+                                                        	<input type="number" class="form-control" />
+                                                        </div>
+                                                        <div class="col-md-3"></div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                    <hr />
+                                                    <div class="form-group">
+                                                    	<div class="col-md-3 control-label">Activate reviews</div>
+                                                        <div class="col-md-9">
+                                                        	<input type="checkbox" /> 
+                                                        </div>
+                                                        
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </div>-->
+                                                 <div class="tab-pane fade" id="swtiches" style="line-height:30px">
+                                                    <h3>Color and swatches</h3>
+                                                    <hr />
+                                                     <div class="col-md-6">
+                                                    	<input type="text" class="form-control input-sm"/ >
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                    <button class="btn btn-default btn-sm">Add</button>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <hr />
+                                                     <?php for($i=1;$i<=5;$i++){ ?>
+                                                    <div class="col-md-9">Off Shoulder Sweater Green</div>
+                                                    <div class="col-md-3"><a href="#">Edit</a> | <a href="#">Delete</a></div> <?php } ?>
+                                                 <div class="clearfix"></div>   
+                                                </div>
+                                                <div class="tab-pane fade" id="product_color" style="line-height:40px">
+                                                    <?php for($i=1;$i<=40;$i++){ ?>
+                                                    <div class="col-md-3">
+                                                    Color <input type="checkbox" />
+                                                    </div>
+                                                    <?php } ?>
+                                                    
+                                                </div>
+                                                
+                                                <div class="tab-pane fade" id="wait_list">
+                                                    <button class="btn btn-primary btn-sm new-user">Add new user</button>
+                                                    <hr />
+                                                    <div id="new-user" style="display:none">
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control input-sm"/ >
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                        <button class="btn btn-default btn-sm">Add</button>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                        <hr />
+                                                    </div>
+                                                </div>
+                                                
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+        </div>
+        
+  	</div>
+    
+    
+  </div>
+  <div class="col-md-4">
+    <div class="portlet box default">
+      <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-bars"></i>Categories </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+      <div class="portlet-body">
+        <div class="row category-checkbox-list">
+          <ul class="nav nav-tabs">
+            <li class="active"> <a href="#tab_1_1" data-toggle="tab"> First </a> </li>
+            <li> <a href="#tab_1_2" data-toggle="tab"> Second </a> </li>
+          </ul>
+          
+          <div class="tab-content">
+            <div class="tab-pane fade active in" id="tab_1_1">
+              <ul>
+                <li>
+                  <input type="checkbox">
+                  First
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      1-First</li>
+                    <li>
+                      <input type="checkbox">
+                      2-First</li>
+                    <li>
+                      <input type="checkbox">
+                      3-First</li>
+                    <li>
+                      <input type="checkbox">
+                      4-First</li>
+                  </ul>
+                </li>
+                <li>
+                  <input type="checkbox">
+                  Second</li>
+                <li>
+                  <input type="checkbox">
+                  Third
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      1-Third</li>
+                    <li>
+                      <input type="checkbox">
+                      2-Third</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="tab-pane fade" id="tab_1_2">
+              <ul>
+                <li>
+                  <input type="checkbox">
+                  First
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      1-First</li>
+                    <li>
+                      <input type="checkbox">
+                      2-First</li>
+                    <li>
+                      <input type="checkbox">
+                      3-First</li>
+                    <li>
+                      <input type="checkbox">
+                      4-First</li>
+                  </ul>
+                </li>
+                <li>
+                  <input type="checkbox">
+                  Second</li>
+                <li>
+                  <input type="checkbox">
+                  Third
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      1-Third</li>
+                    <li>
+                      <input type="checkbox">
+                      2-Third</li>
+                  </ul>
+                </li>
+                <li>
+                  <input type="checkbox">
+                  Fourth
+                  <ul>
+                    <li>
+                      <input type="checkbox">
+                      1-Fourth</li>
+                    <li>
+                      <input type="checkbox">
+                      2-Fourth</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+      	
+        <a href="javascript:;" class="btn btn-sm btn-default addnewcategory"> <i class="fa fa-plus"></i> Add new product</a>
+        <div class="top10"></div>
+        <div id="new-product-section" style="display:none">
+        <div class="col-md-12">
+        
+        	<input type="text" class="form-control input-sm" />
+        </div>
+        <div class="clearfix"></div>
+        <div class="top5"></div>
+        <div class="col-md-12">
+        	<select class="form-control input-sm">
+            	<option></option>
+                <option>Product 1</option>
+                <option>Product 2</option>
+                <option>Product 3</option>
+                <option>Product 4</option>
+                <optgroup label="Group">
+                	<option>Product 1</option>
+                	<option>Product 1</option>
+                </optgroup>
+            </select>
+        
+        </div>
+        <div class="clearfix"></div>
+        <div class="top5"></div>
+        <div class="col-md-12">
+        <button class="btn btn-primary btn-sm">Add new product</button>
+        </div>
+        
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="portlet box default">
+      <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-tags"></i>Product Tags </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+      <div class="portlet-body" style="line-height:30px">
+         <div class="row">
+         	<div class="col-md-8">
+            	<input type="text" class="form-control input-sm" name="tag" id="new-tag" />
+            </div>
+            <div class="col-md-4">
+            	<button class="btn btn-default btn-sm addtag">Add</button>
+            </div>
+         </div>
+         
+         <div class="row">
+         	<div class="col-md-12"><small><em>Product separate tags with commas</em></small></div>
+            <div class="col-md-12">
+              <ul class="tags">
+              <?php for($i=1;$i<=3;$i++){ ?>
+              	<li><a href="javascript:;" class="remove-tag"><i class="fa fa-remove"></i></a> Tag </li>
+              <?php } ?>  
+              </ul>
+            </div>
+         </div>
+         
+      </div>
+      
+    </div>
+    
+    <div class="portlet box default">
+      <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-gear"></i>Published </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+      <div class="portlet-body">
+         <button class="btn btn-danger pull-left btn-sm">Publish</button>
+         <button class="btn btn-primary pull-right btn-sm">See changes</button>
+         <div class="clearfix"></div>
+         <hr />
+         <ul class="published">
+         	<li><i class="fa fa-key"></i> Status: <strong>Published</strong> <a href="javascript:;">Edit</a>
+            	<div id="status-section" class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-3"></div>
+                </div>
+            </li>
+            <li><i class="fa fa-eye"></i> Visiblity: <strong>Public</strong> <a href="javascript:;">Edit</a></li>
+            <li><i class="icon-calendar"></i> Posted on: <strong>23 March, 2016 14:23</strong> <a href="javascript:;">Edit</a></li>
+         </ul>
+         
+         <hr />
+         
+         
+      </div>
+      
+    </div>
+    <div class="portlet box default">
+      <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-gift"></i>Product gallery </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+      <div class="portlet-body">
+     
+       
+       <a class="" data-toggle="modal" href="#full">Adding product images</a>
+       
+       <div class="top20"></div>
+                                                        <div class="tiles">
+                                                        <?php for($i=1;$i<=4;$i++){ ?>
+                                                        <div class="tile image">
+                                                        <div class="tile-body">
+                                                        {!! HTML::image("assets/img/photo3.jpg", 'Dummy image', array('width' => '100%')) !!} </div>
+                                                        <div class="tile-object">
+                                                            <div class="name"> Media </div>
+                                                        </div>
+                                                    </div>
+                                                        <?php } ?>
+                                                        </div>
+         
+      </div>
+      
+    </div>
+    
+    
+    <div class="portlet box default">
+      <div class="portlet-title">
+                                    <div class="caption">
+                                        <i class="fa fa-gift"></i>Featured Image </div>
+                                    <div class="tools">
+                                        <a href="javascript:;" class="collapse" data-original-title="" title=""> </a>
+                                    </div>
+                                </div>
+      <div class="portlet-body">
+         
+       {!! HTML::image("assets/img/dummy.jpg", 'Dummy image', array('width' => '100%')) !!}
+       
+       <a href="javascript:;">Remove featured image</a>
+         
+      </div>
+      
+    </div>
+    
+  </div>
+  
+</div>
+
+
+<div class="modal fade" id="full" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog modal-full">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                                    <h4 class="modal-title">Adding images to the product gallery</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                
+                                                  <div class="tabbable-custom ">
+                                        <ul class="nav nav-tabs ">
+                                            <li>
+                                                <a href="#tab_5_1" data-toggle="tab"> Upload Files </a>
+                                            </li>
+                                            <li class="active">
+                                                <a href="#tab_5_2" data-toggle="tab"> Library </a>
+                                            </li>
+                                            
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane" id="tab_5_1">
+                                                <form action="upload.php" class="dropzone dropzone-file-area" id="my-dropzone">
+                            </form>
+                                            </div>
+                                            <div class="tab-pane active" id="tab_5_2">
+                                                
+                                                    <div class="row col-md-9 library-section">
+                                                        <div class="row col-md-2">
+                                                            <select class="form-control input-sm">
+                                                                <option>All media files</option>
+                                                                <option>Audio</option>
+                                                                <option>Video</option>
+                                                                <option>Images</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                        <select class="form-control input-sm">
+                                                                <option>All dates</option>
+                                                                <option>16 March 2016</option>
+                                                                <option>15 March 2016</option>
+                                                                <option>14 March 2016</option>
+                                                            </select>
+                                                        </div>
+                                                        
+                                                        <div class="pull-right col-md-2">
+                                                        <input type="text" class="form-control input-sm" placeholder="search" />
+                                                        </div>
+                                                        
+                                                        <div class="clearfix"></div>
+                                                        <div class="top20"></div>
+                                                        <div class="tiles">
+                                                        <?php for($i=1;$i<=100;$i++){ ?>
+                                                        <div class="tile image">
+                                                        <div class="tile-body">
+                                                        {!! HTML::image("assets/img/photo3.jpg", 'Dummy image', array('width' => '100%')) !!} </div>
+                                                        <div class="tile-object">
+                                                            <div class="name"> Media </div>
+                                                        </div>
+                                                    </div>
+                                                        <?php } ?>
+                                                        </div>
+                                                        
+                                                        
+                                                    </div>
+                                                    <div class="col-md-3 product-description library-section" >
+                                                    
+                                                    <h4>Product 1</h4>
+                                                    <hr />
+                                                    <div class="row col-md-6">
+                                                     {!! HTML::image("assets/img/photo3.jpg", 'Dummy image', array('width' => '100%')) !!}
+                                                    </div>
+                                                    
+                                                    
+                                                    <div class="col-md-6">
+                                                    <p class="top10">
+                                                    	<strong>photo3.jpg</strong>
+                                                    </p>
+                                                    <p class="top3">
+                                                    92 kB
+                                                    </p>
+                                                    <p class="top3">
+                                                    586 × 900
+                                                    </p>
+                                                    
+                                                    <p class="top3">
+                                                    <a href="javascript:;">Image Editing</a>
+                                                    </p>
+                                                    <p class="top3 red">
+                                                    <a href="javascript:;">Permenant delete</a>
+                                                    </p>
+                                                    
+                                                    </div>
+                                                    <hr />
+                                                    <div class="row col-md-12 top15">
+                                                    
+                                                    	<form role="form">
+                                        <div class="form-body">
+                                            
+                                            
+                                            
+                                            <div class="form-group">
+                                                <label>URL</label>
+                                                <input type="text" class="form-control input-medium" placeholder="">
+                                                <div class="input-icon right input-medium margin-top-10">
+                                                    
+                                                    <label>Title</label>
+                                                    <input type="text" class="form-control" placeholder=""> </div>
+                                                <div class="input-icon input-medium margin-top-10">
+                                                   <label>Caption</label>
+                                                    <textarea class="form-control padding5"></textarea> </div>
+                                                <div class="input-group input-medium margin-top-10">
+                                                    <label>Alt text</label>
+                                                    <input type="text" class="form-control" placeholder=""> </div>
+                                                <div class="input-group input-medium margin-top-10">
+                                                    <label>Description</label>
+                                                    <textarea class="form-control padding5"></textarea>
+                                                </div>
+                                                <hr> </div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                        </div>
+                                        
+                                    </form>
+                                                    	
+                                                    </div>
+                                                    
+                                                    
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                    
+                                                
+                                                
+                                                
+                                                 </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn green">Save changes</button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+
+
+@endsection
+
+ @section('scripts')
+ {!! HTML::script('assets/plugins/select2/js/select2.min.js') !!}
+ {!! HTML::script('assets/plugins/ckeditor/ckeditor.js') !!}
+
+
+ {!! HTML::script('assets/js/dropzone.js') !!}
+ {!! HTML::script('assets/js/custom.js') !!}
+ @endsection
